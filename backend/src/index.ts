@@ -3,6 +3,7 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import dotenv from 'dotenv';
 import candidateRoutes from './routes/candidateRoutes';
+import positionCandidatesRoutes from './routes/position-candidates.routes';
 import { uploadFile } from './application/services/fileUploadService';
 import cors from 'cors';
 
@@ -38,6 +39,9 @@ app.use(cors({
 
 // Import and use candidateRoutes
 app.use('/candidates', candidateRoutes);
+
+// Import and use position candidates routes
+app.use('/positions', positionCandidatesRoutes);
 
 // Route for file uploads
 app.post('/upload', uploadFile);
